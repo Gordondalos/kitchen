@@ -2,15 +2,15 @@
 
   <div class="w-100 row" *ngIf="recipe">
     <div class="col-sm-12 col-md-8">
-      <div class="card w-100" >
+      <div class="card w-100">
         <div class="images" [style.background-image]="'url(' + recipe.imgUrl + ')'"></div>
         <div class="card-block">
           <h4 class="card-title">{{recipe.title}}</h4>
-          <p  class="card-text" [innerHTML]="recipe.description"></p>
+          <p class="card-text" [innerHTML]="recipe.description"></p>
           <a class="btn btn-primary text-white" (click)="showEditRecipe()">
             <i class="fa fa-pencil" aria-hidden="true"></i>
             Редактировать</a>
-          <a  class="btn btn-success text-white">
+          <a class="btn btn-success text-white">
             <i class="fa fa-plus-square" aria-hidden="true"></i>
             Добавить к списку покупок</a>
         </div>
@@ -22,8 +22,8 @@
           <i class="fa f20 fa-check-square-o" aria-hidden="true"></i>
           &nbsp;
           {{ingridient.title}}
-
-          <i (click)="removeIngridient(ingridient.title)" class="fa fa-trash float-right text-danger pl-2 pointer pt-1" aria-hidden="true"></i>
+          <i (click)="removeIngridient(ingridient.title)" class="fa fa-trash float-right text-danger pl-2 pointer pt-1"
+             aria-hidden="true"></i>
           <span class="float-right">{{ingridient.quantity}}</span>
         </li>
       </ul>
@@ -45,23 +45,23 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="imgUrl"  class="col-2 col-form-label">Путь к картинке</label>
+          <label for="imgUrl" class="col-2 col-form-label">Путь к картинке</label>
           <div class="col-10">
             <input class="form-control" [(ngModel)]="recipe.imgUrl" type="text" id="imgUrl">
           </div>
         </div>
 
         <div class="form-group row">
-          <label for="description"  class="col-2 col-form-label">Описание</label>
+          <label for="description" class="col-2 col-form-label">Описание</label>
           <div class="col-10">
-            <p-editor id="description"  [(ngModel)]="recipe.description"></p-editor>
+            <p-editor id="description" [(ngModel)]="recipe.description"></p-editor>
           </div>
         </div>
 
 
         <p-footer>
-          <button class="btn btn-danger"  (click)="displayRicepe=false" label="No">Отмена</button>
-          <button class="btn btn-success"  (click)="saveRecipe()" label="Yes">Сохранить</button>
+          <button class="btn btn-danger" (click)="displayRicepe=false" label="No">Отмена</button>
+          <button class="btn btn-success" (click)="saveRecipe()" label="Yes">Сохранить</button>
         </p-footer>
       </p-dialog>
 
@@ -78,19 +78,17 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="example-search-input"  class="col-2 col-form-label">Количество</label>
+          <label for="example-search-input" class="col-2 col-form-label">Количество</label>
           <div class="col-10">
             <input class="form-control" [(ngModel)]="quantity" type="text" id="example-search-input">
           </div>
         </div>
 
-           <p-footer>
-            <button class="btn btn-danger"  (click)="display=false" label="No">Отмена</button>
-            <button class="btn btn-success"  (click)="addIngridient()" label="Yes">Добавить</button>
-          </p-footer>
+        <p-footer>
+          <button class="btn btn-danger" (click)="display=false" label="No">Отмена</button>
+          <button class="btn btn-success" (click)="addIngridient()" label="Yes">Добавить</button>
+        </p-footer>
       </p-dialog>
-
-
 
 
     </div>

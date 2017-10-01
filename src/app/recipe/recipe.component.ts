@@ -13,13 +13,15 @@ export class RecipeComponent implements OnInit {
 
   recipeId: string;
   recipe: Recipe;
-  display: boolean = false;
-  displayRicepe: boolean = false;
+  display = false;
+  displayRicepe = false;
   title: string;
   quantity: string;
 
-  constructor(private route: ActivatedRoute,
-              private recipeService: RecipeService,) {
+  constructor(
+      private route: ActivatedRoute,
+      private recipeService: RecipeService,
+  ) {
   }
 
   ngOnInit() {
