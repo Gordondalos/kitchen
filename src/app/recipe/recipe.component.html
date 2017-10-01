@@ -23,6 +23,7 @@
           &nbsp;
           {{ingridient.title}}
 
+          <i (click)="removeIngridient(ingridient.title)" class="fa fa-trash float-right text-danger pl-2 pointer pt-1" aria-hidden="true"></i>
           <span class="float-right">{{ingridient.quantity}}</span>
         </li>
       </ul>
@@ -32,12 +33,24 @@
         добавить
       </button>
 
-      <p-dialog header="Godfather I" [(visible)]="display" modal="modal" width="300" [responsive]="true">
-        <p>The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
-          His
-          <p-footer>
+      <p-dialog header="Добавление нового ингридиента" [(visible)]="display" modal="modal" width="600" [responsive]="true">
+
+        <div class="form-group row">
+          <label for="example-text-input" class="col-2 col-form-label">Название</label>
+          <div class="col-10">
+            <input class="form-control" [(ngModel)]="title" type="text" id="example-text-input">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="example-search-input"  class="col-2 col-form-label">Количество</label>
+          <div class="col-10">
+            <input class="form-control" [(ngModel)]="quantity" type="text" id="example-search-input">
+          </div>
+        </div>
+
+           <p-footer>
             <button class="btn btn-danger"  (click)="display=false" label="No">Отмена</button>
-            <button class="btn btn-success"  (click)="display=false" label="Yes">Сохранить</button>
+            <button class="btn btn-success"  (click)="addIngridient()" label="Yes">Добавить</button>
           </p-footer>
       </p-dialog>
 
