@@ -10,36 +10,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active pt-2">
-              <a class="nav-link" href="#">Рецепты</a>
+              <a class="nav-link" (click)="goHome()">Рецепты</a>
             </li>
             <li class="nav-item pt-2">
-              <a class="nav-link" href="#">Шопинг лист</a>
-            </li>
-          </ul>
-
-        </div>
-      </nav>
-
-      <div class="clearfix mt-4"></div>
-      <nav class="navbar navbar-toggleable-md navbar-light px-2">
-
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse bg-faded px-4">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link f24" href="#">Первое</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link f24" href="#">Второе</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link f24" href="#">Салаты</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link f24" href="#">Напитки</a>
+              <a class="nav-link" (click)="goShopList()">Шопинг лист</a>
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">

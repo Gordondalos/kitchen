@@ -8,9 +8,7 @@ import { Router } from '@angular/router';
 })
 export class LayoutComponent implements OnInit {
 
-  constructor(
-    public router: Router,
-  ) {
+  constructor(public router: Router,) {
   }
 
   ngOnInit() {
@@ -24,8 +22,12 @@ export class LayoutComponent implements OnInit {
     this.router.navigateByUrl('/edit-user');
   }
 
-  goHome(){
+  goHome() {
     this.router.navigateByUrl('/');
+  }
+
+  goShopList() {
+    this.router.navigateByUrl('/shop');
   }
 
 }
