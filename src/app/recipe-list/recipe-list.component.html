@@ -5,7 +5,6 @@
       <div class="col-sm-12">
         <h1>Рецепты</h1>
       </div>
-
     </div>
   </div>
 
@@ -93,9 +92,12 @@
               Подробнее</button>
           </div>
           <div href="#" class="col-sm-12 col-md-12 col-lg-6 mt-4">
-            <button class="btn btn-success w-100 ">
+            <button *ngIf="!recipe.shopList" class="btn btn-success w-100" (click)="addShopList(recipe)">
               <i class="fa fa-cart-plus" aria-hidden="true"></i>
               Закупить</button>
+            <i *ngIf="recipe.shopList" class="fa f24 float-right fa-check-square-o px-2" aria-hidden="true"></i>
+            <i *ngIf="recipe.shopList" (click)="removeShopList(recipe)" class="fa text-danger float-right px-2 f24 fa-minus-circle" aria-hidden="true"></i>
+
           </div>
 
         </div>

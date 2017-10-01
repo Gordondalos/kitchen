@@ -14,14 +14,6 @@ export class LayoutComponent implements OnInit {
   ngOnInit() {
   }
 
-  goCreateUser() {
-    this.router.navigateByUrl('/create-user');
-  }
-
-  goEditUser() {
-    this.router.navigateByUrl('/edit-user');
-  }
-
   goHome() {
     this.router.navigateByUrl('/');
   }

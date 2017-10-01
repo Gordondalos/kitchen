@@ -65,5 +65,13 @@ export class RecipeListComponent implements OnInit {
     this.recipe.ingredients.push({ title: '', quantity: '' });
   }
 
+  addShopList(recipe) {
+    recipe.shopList = true;
+  }
+
+  removeShopList(recipe) {
+    recipe.shopList = false;
+  }
+
 
 }

@@ -4,4 +4,5 @@ export interface Recipe {
   imgUrl: string;
   description: string;
   ingredients: any;
+  shopList?: boolean;
 }
