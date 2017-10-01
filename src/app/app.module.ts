@@ -19,6 +19,7 @@ import {DialogModule} from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RecipeIngridientsComponent } from './recipe-ingridients/recipe-ingridients.component';
 import { ShopListComponent } from './shop-list/shop-list.component';
+import { HideNotShopPipe } from './pipes/hide-not-shop.pipe';
 
 
 
@@ -33,6 +34,7 @@ import { ShopListComponent } from './shop-list/shop-list.component';
     RecipeComponent,
     RecipeIngridientsComponent,
     ShopListComponent,
+    HideNotShopPipe,
   ],
   imports: [
     BrowserModule,

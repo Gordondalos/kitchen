@@ -3,7 +3,30 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <h1>Список Покупок</h1>
+        <h1>Список продуктов</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-sm-12 col-lg-4">
+
+        <div *ngFor="let recipe of recipeList | hideNotShop">
+          <div>
+            <h3 class="text-center">На {{recipe.title}}</h3>
+          </div>
+          <div *ngFor="let ingredient of recipe.ingredients">
+            <ul class="list-unstyled">
+              <li>
+                <span>{{ingredient.title}}</span>
+                <span class="float-right">{{ingredient.quantity}}</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
       </div>
     </div>
   </div>
