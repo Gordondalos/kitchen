@@ -1,0 +1,35 @@
+<app-layout>
+
+  <h1>
+    Список пользователей
+  </h1>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Adress</th>
+      <th>Date Registration</th>
+      <th>Email</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users; let i = index">
+      <th scope="row">{{user.id}}</th>
+      <td>{{user.name}}</td>
+      <td>{{user.phone}}</td>
+      <td>{{user.adress}}</td>
+      <td>{{user.date_registration}}</td>
+      <td>{{user.email}}</td>
+      <td><button (click)="editUser(user)" class="btn btn-success">Edit</button></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <button (click)="goToAddUser()" type="button" class="btn btn-success pointer">Add User</button>
+
+
+</app-layout>

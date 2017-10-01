@@ -1,0 +1,65 @@
+<div class="container mt-4">
+  <div class="row ">
+    <header class="w-100">
+      <nav class="navbar navbar-toggleable-md navbar-light">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand f28" href="#">Готовим дома</a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active pt-2">
+              <a class="nav-link" href="#">Рецепты</a>
+            </li>
+            <li class="nav-item pt-2">
+              <a class="nav-link" href="#">Шопинг лист</a>
+            </li>
+          </ul>
+
+        </div>
+      </nav>
+
+      <div class="clearfix mt-4"></div>
+      <nav class="navbar navbar-toggleable-md navbar-light px-2">
+
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav mr-auto px-0">
+            <li class="nav-item">
+              <a class="nav-link f24" href="#">Первое</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link f24" href="#">Второе</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link f24" href="#">Салаты</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link f24" href="#">Напитки</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+
+        </div>
+      </nav>
+
+    </header>
+  </div>
+
+  <div class="row mt-4">
+    <ng-content></ng-content>
+  </div>
+
+  <div class="row">
+    <footer></footer>
+  </div>
+
+</div>
+
