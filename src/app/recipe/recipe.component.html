@@ -20,9 +20,15 @@
             <a class="btn btn-primary text-white" (click)="showEditRecipe()">
               <i class="fa fa-pencil" aria-hidden="true"></i>
               Редактировать</a>
-            <a class="btn btn-success text-white">
+            <a *ngIf="!recipe.shopList" class="btn btn-success text-white" (click)="addShopList()">
               <i class="fa fa-plus-square" aria-hidden="true"></i>
-              Добавить к списку покупок</a>
+              Добавить к списку покупок
+            </a>
+
+            <i *ngIf="recipe.shopList" class="fa f24 float-right fa-check-square-o px-2" aria-hidden="true"></i>
+            <i *ngIf="recipe.shopList" (click)="removeShopList(recipe)" class="fa text-danger float-right px-2 f24 fa-minus-circle" aria-hidden="true"></i>
+
+
           </div>
         </div>
       </div>

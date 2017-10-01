@@ -18,10 +18,8 @@ export class RecipeComponent implements OnInit {
   title: string;
   quantity: string;
 
-  constructor(
-      private route: ActivatedRoute,
-      private recipeService: RecipeService,
-  ) {
+  constructor(private route: ActivatedRoute,
+              private recipeService: RecipeService) {
   }
 
   ngOnInit() {
@@ -60,6 +58,15 @@ export class RecipeComponent implements OnInit {
     this.recipeService.saveRecipe(this.recipeId, this.recipe);
     this.displayRicepe = false;
   }
+
+  addShopList() {
+    this.recipe['shopList'] = true;
+  }
+
+  removeShopList() {
+    this.recipe['shopList']  = false;
+  }
+
 
 
 }
