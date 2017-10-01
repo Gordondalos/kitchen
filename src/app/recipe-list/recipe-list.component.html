@@ -1,5 +1,23 @@
 <app-layout>
 
+  <div class="col-sm-6 col-lg-4">
+    <div class="card mt-4">
+      <div class="images" [style.background-image]="'url(http://bhappy.com.ua/image/cache/catalog/kuk_buk_dlya_zapisi_receptov_kremovyj_429-1000x700.jpg)'"></div>
+      <div class="card-block">
+        <h4 class="card-title">Добавить новое блюдо</h4>
+        <p class="card-text"> </p>
+        <div class="row">
+          <div href="#" class="col-sm-12 col-md-12 col-lg-6 mt-4">
+            <button class="btn btn-primary w-100">
+              <i class="fa fa-plus-square" aria-hidden="true"></i>
+              Добавить
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div *ngFor="let recipe of recipeList" class="col-sm-6 col-lg-4">
     <div class="card mt-4">
       <div class="images" [style.background-image]="'url(' + recipe.imgUrl + ')'"></div>
@@ -8,10 +26,14 @@
         <p class="card-text"> </p>
         <div class="row">
           <div href="#" class="col-sm-12 col-md-12 col-lg-6 mt-4">
-            <button class="btn btn-primary w-100">Подробнее</button>
+            <button class="btn btn-primary w-100">
+              <i class="fa fa-arrow-right" aria-hidden="true"></i>
+              Подробнее</button>
           </div>
           <div href="#" class="col-sm-12 col-md-12 col-lg-6 mt-4">
-            <button class="btn btn-success w-100 ">Буду готовить</button>
+            <button class="btn btn-success w-100 ">
+              <i class="fa fa-cart-plus" aria-hidden="true"></i>
+              Закупить</button>
           </div>
 
         </div>
