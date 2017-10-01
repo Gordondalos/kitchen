@@ -1,6 +1,24 @@
 <app-layout>
 
-  <div *ngFor="" class="col-sm-4"></div>
+  <div *ngFor="let recipe of recipeList" class="col-sm-6 col-lg-4">
+    <div class="card mt-4">
+      <div class="images" [style.background-image]="'url(' + recipe.imgUrl + ')'"></div>
+      <div class="card-block">
+        <h4 class="card-title">{{recipe.title}}</h4>
+        <p class="card-text"> </p>
+        <div class="row">
+          <div href="#" class="col-sm-12 col-md-12 col-lg-6 mt-4">
+            <button class="btn btn-primary w-100">Подробнее</button>
+          </div>
+          <div href="#" class="col-sm-12 col-md-12 col-lg-6 mt-4">
+            <button class="btn btn-success w-100 ">Буду готовить</button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
 
 </app-layout>
 
