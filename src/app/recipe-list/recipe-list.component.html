@@ -21,7 +21,6 @@
               <i class="fa fa-plus-square" aria-hidden="true"></i>
               Добавить
             </button>
-
             <p-dialog header="Добавляем новый рецепт"
                       [(visible)]="display"
                       modal="modal"
@@ -69,15 +68,13 @@
                 <button class="btn btn-success" (click)="saveRecipe()" label="Yes">Сохранить</button>
               </p-footer>
             </p-dialog>
-
-
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div *ngFor="let recipe of recipeList" class="col-sm-6 col-lg-4">
+  <div *ngFor="let recipe of recipeList | filterByName : filterString" class="col-sm-6 col-lg-4">
     <div class="card mt-4">
       <div class="images" [style.background-image]="'url(' + recipe.imgUrl + ')'"></div>
       <div class="card-block">

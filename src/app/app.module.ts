@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RecipeIngridientsComponent } from './recipe-ingridients/recipe-ingridients.component';
 import { ShopListComponent } from './shop-list/shop-list.component';
 import { HideNotShopPipe } from './pipes/hide-not-shop.pipe';
+import { FilterNamePipe } from './pipes/filter-name.pipe';
 
 
 
@@ -29,6 +30,7 @@ import { HideNotShopPipe } from './pipes/hide-not-shop.pipe';
     RecipeIngridientsComponent,
     ShopListComponent,
     HideNotShopPipe,
+    FilterNamePipe,
   ],
   imports: [
     BrowserModule,

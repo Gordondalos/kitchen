@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
 import { Recipe } from '../models/recipe.models';
+import { Subject } from 'rxjs';
 
 
 @Injectable()
 export class RecipeService {
+
+  eventFilter: Subject<any> = new Subject<any>();
 
   recipe: any = [
     {
@@ -68,7 +71,7 @@ export class RecipeService {
       ]
     },
 
-  ]
+  ];
 
   constructor() {
   }

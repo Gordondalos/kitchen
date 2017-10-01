@@ -11,6 +11,8 @@ import * as _ from 'lodash';
 })
 export class RecipeListComponent implements OnInit {
 
+  filterString: string;
+
 
   display = false;
   recipeList: Recipe[];
@@ -32,6 +34,9 @@ export class RecipeListComponent implements OnInit {
 
   ngOnInit() {
     this.recipeList = this.recipeService.getRecipe();
+    this.recipeService.eventFilter.subscribe((filterString) => {
+      this.filterString = filterString;
+    })
   }
 
   show(recipe) {
