@@ -87,4 +87,10 @@ export class RecipeService {
     })
   }
 
+  saveRecipe(recipeId: string, recipe: Recipe){
+    console.log(recipeId);
+    console.log(recipe);
+
+  }
+
 }
