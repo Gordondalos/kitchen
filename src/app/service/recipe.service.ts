@@ -87,10 +87,13 @@ export class RecipeService {
     })
   }
 
-  saveRecipe(recipeId: string, recipe: Recipe){
+  saveRecipe(recipeId: string, recipe: Recipe) {
     console.log(recipeId);
     console.log(recipe);
+  }
 
+  addRecipe(recipe: Recipe) {
+    console.log(recipe);
   }
 
 }
