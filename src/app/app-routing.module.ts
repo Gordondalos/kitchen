@@ -5,19 +5,20 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { RecipeComponent } from './recipe/recipe.component';
+import { ShopListComponent } from './shop-list/shop-list.component';
 
 
 
 const appRoutes: Routes = [
 
   { path: '',   redirectTo: 'recipe/recipe-list', pathMatch: 'full' },
+  { path: 'shop-list', component: ShopListComponent },
 
   {
     path : 'recipe', children : [
     { path : '', redirectTo: 'recipe-list', pathMatch: 'full' },
     { path: 'recipe-list', component: RecipeListComponent },
     { path: 'show_recipe', component: RecipeComponent },
-
     ],
   },
 

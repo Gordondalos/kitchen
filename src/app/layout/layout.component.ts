@@ -27,7 +27,7 @@ export class LayoutComponent implements OnInit {
   }
 
   goShopList() {
-    this.router.navigateByUrl('/shop');
+    this.router.navigateByUrl('/shop-list');
   }
 
 }

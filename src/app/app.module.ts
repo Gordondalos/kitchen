@@ -18,6 +18,7 @@ import { RecipeComponent } from './recipe/recipe.component';
 import {DialogModule} from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RecipeIngridientsComponent } from './recipe-ingridients/recipe-ingridients.component';
+import { ShopListComponent } from './shop-list/shop-list.component';
 
 
 
@@ -31,6 +32,7 @@ import { RecipeIngridientsComponent } from './recipe-ingridients/recipe-ingridie
     RecipeListComponent,
     RecipeComponent,
     RecipeIngridientsComponent,
+    ShopListComponent,
   ],
   imports: [
     BrowserModule,
