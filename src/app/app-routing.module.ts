@@ -4,21 +4,20 @@ import { UserListComponent } from './user-list/user-list.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
+import { RecipeComponent } from './recipe/recipe.component';
 
 
 
 const appRoutes: Routes = [
 
-  { path: '',   redirectTo: '/recipe', pathMatch: 'full' },
-  { path: 'user-list', component: UserListComponent },
-  { path: 'create-user', component: CreateUserComponent },
-  { path: 'edit-user', component: EditUserComponent },
+  { path: '',   redirectTo: 'recipe/recipe-list', pathMatch: 'full' },
 
   {
     path : 'recipe', children : [
     { path : '', redirectTo: 'recipe-list', pathMatch: 'full' },
     { path: 'recipe-list', component: RecipeListComponent },
-    // { path : 'profile', component : UserProfileComponent, canActivate : [AuthGuardService] },
+    { path: 'show_recipe', component: RecipeComponent },
+
     ],
   },
 

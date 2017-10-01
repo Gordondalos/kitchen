@@ -13,6 +13,9 @@ import { ApiService } from './service/api.service';
 import { HttpModule } from '@angular/http';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { RecipeService } from './service/recipe.service';
+import { RecipeComponent } from './recipe/recipe.component';
+import {DialogModule} from 'primeng/primeng';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -22,19 +25,21 @@ import { RecipeService } from './service/recipe.service';
     LayoutComponent,
     CreateUserComponent,
     EditUserComponent,
-    RecipeListComponent
+    RecipeListComponent,
+    RecipeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    DialogModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     ApiService,
     RecipeService,
-
   ],
   bootstrap: [AppComponent]
 })
