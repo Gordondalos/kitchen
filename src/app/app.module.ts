@@ -6,10 +6,7 @@ import {EditorModule} from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { UserListComponent } from './user-list/user-list.component';
 import { LayoutComponent } from './layout/layout.component';
-import { CreateUserComponent } from './create-user/create-user.component';
-import { EditUserComponent } from './edit-user/edit-user.component';
 import { ApiService } from './service/api.service';
 import { HttpModule } from '@angular/http';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
@@ -26,10 +23,7 @@ import { HideNotShopPipe } from './pipes/hide-not-shop.pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    UserListComponent,
     LayoutComponent,
-    CreateUserComponent,
-    EditUserComponent,
     RecipeListComponent,
     RecipeComponent,
     RecipeIngridientsComponent,
