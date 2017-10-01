@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-recipe-ingridients',
@@ -8,10 +9,25 @@ import { Component, OnInit, Input } from '@angular/core';
 export class RecipeIngridientsComponent implements OnInit {
 
   @Input() recipe: any;
+  @Output() save: any =  new EventEmitter();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+
+  removeIngridient(ingridientTitle) {
+    _.each(this.recipe.ingredients, (item, index) => {
+      if (item.title === ingridientTitle) {
+        this.recipe.ingredients.splice(index, 1);
+      }
+    });
+    this.saveRecipe();
+  }
+
+  saveRecipe() {
+    this.save.emit(this.recipe);
   }
 
 }

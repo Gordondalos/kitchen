@@ -28,7 +28,9 @@
       </div>
       <div class="col-sm-12 col-md-4">
 
-        <app-recipe-ingridients [recipe]="recipe"></app-recipe-ingridients>
+        <app-recipe-ingridients
+            (save)="saveRecipe($event)"
+            [recipe]="recipe"></app-recipe-ingridients>
 
         <button class="btn btn-success float-right"
                 (click)="showDialog()">

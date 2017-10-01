@@ -55,14 +55,6 @@ export class RecipeComponent implements OnInit {
     this.saveRecipe();
   }
 
-  removeIngridient(ingridientTitle) {
-    _.each(this.recipe.ingredients, (item, index) => {
-      if (item.title === ingridientTitle) {
-        this.recipe.ingredients.splice(index, 1);
-      }
-    });
-    this.saveRecipe();
-  }
 
   saveRecipe() {
     this.recipeService.saveRecipe(this.recipeId, this.recipe);
