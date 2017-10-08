@@ -98,40 +98,56 @@ export class RecipeService {
     return this.http.get(Url).toPromise();
   }
 
-  addTableRow ( newData ) {
-    const headers = new Headers ( {
-      'Content-Type' : CONFIG.ApiContentType,
-      'format' : CONFIG.ApiFormat,
-    } );
-    const options = new RequestOptions ( { headers : headers } );
+  addTableRow(newData) {
+    const headers = new Headers({
+      'Content-Type': CONFIG.ApiContentType,
+      'format': CONFIG.ApiFormat,
+    });
+    const options = new RequestOptions({ headers: headers });
     const Url = CONFIG.ApiURL + 'new ';
     const body = JSON.stringify(newData);
-    return this.http.post ( Url, body , headers )
-        .toPromise ()
+    return this.http.post(Url, body, headers)
+        .toPromise()
   }
 
-  updateTableRow ( id, newData ){
-    const headers = new Headers ( {
-      'Content-Type' : CONFIG.ApiContentType,
-      'format' : CONFIG.ApiFormat,
-    } );
-    const options = new RequestOptions ( { headers : headers } );
+  updateTableRow(id, newData) {
+    const headers = new Headers({
+      'Content-Type': CONFIG.ApiContentType,
+      'format': CONFIG.ApiFormat,
+    });
+    const options = new RequestOptions({ headers: headers });
     const Url = CONFIG.ApiURL + id + '/edit';
     const body = JSON.stringify(newData);
-    return this.http.post ( Url, body , headers )
-        .toPromise ()
+    return this.http.post(Url, body, headers)
+        .toPromise()
   }
 
 
   async getRecipe(): Promise<Recipe[]> {
     const res = await this.getTableAll();
-    this.recipe = JSON.parse(res['_body'])['recipes'];
+    this.normoliseRecipe(JSON.parse(res['_body'])['recipes']);
     return this.recipe;
   }
 
+  normoliseRecipe(recipe) {
+    _.each(recipe, item => {
+      if (typeof JSON.parse(item.ingredients) === 'string') {
+        item.ingredients = JSON.parse(item.ingredients);
+      }
+      item.ingredients = JSON.parse(item.ingredients);
+    });
+    this.recipe = recipe;
+  }
+
   async getRecipeById(id): Promise<Recipe> {
-    const res = await this.getOneRow(id)
+    const res = await this.getOneRow(id);
     const recipe: Recipe = JSON.parse(res['_body'])['recipe'][0];
+    if (typeof JSON.parse(recipe.ingredients) === 'string') {
+      recipe.ingredients = JSON.parse(recipe.ingredients);
+    }
+    if (typeof JSON.parse(recipe.ingredients) === 'string') {
+      recipe.ingredients = JSON.parse(recipe.ingredients);
+    }
     if (typeof JSON.parse(recipe.ingredients) === 'string') {
       recipe.ingredients = JSON.parse(recipe.ingredients);
     }
@@ -141,12 +157,12 @@ export class RecipeService {
 
   async updateRecipe(recipeId: string, recipe: Recipe) {
     const res = await this.updateTableRow(recipeId, recipe);
-    const rec = JSON.parse( res['_body'])['recipe'][0];
+    const rec = JSON.parse(res['_body'])['recipe'][0];
     rec['ingredients'] = JSON.parse(rec['ingredients']);
     return rec;
   }
 
- async addRecipe(recipe: Recipe) {
+  async addRecipe(recipe: Recipe) {
     const res = await this.addTableRow(recipe);
     return JSON.parse(res['_body'])['recipe'][0];
   }
