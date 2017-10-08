@@ -61,10 +61,12 @@ export class RecipeComponent implements OnInit {
 
   addShopList() {
     this.recipe['shopList'] = true;
+    this.recipeService.updateRecipe(this.recipe.id, this.recipe);
   }
 
   removeShopList() {
     this.recipe['shopList']  = false;
+    this.recipeService.updateRecipe(this.recipe.id, this.recipe);
   }
 
 
