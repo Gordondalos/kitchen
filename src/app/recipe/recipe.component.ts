@@ -50,12 +50,12 @@ export class RecipeComponent implements OnInit {
     this.title = '';
     this.quantity = '';
     this.display = false;
-    this.saveRecipe();
+    this.updateRecipe();
   }
 
 
-  saveRecipe() {
-    this.recipeService.saveRecipe(this.recipeId, this.recipe);
+  updateRecipe() {
+    this.recipeService.updateRecipe(this.recipeId, this.recipe);
     this.displayRicepe = false;
   }
 

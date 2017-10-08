@@ -110,6 +110,18 @@ export class RecipeService {
         .toPromise ()
   }
 
+  updateTableRow ( id, newData ){
+    const headers = new Headers ( {
+      'Content-Type' : CONFIG.ApiContentType,
+      'format' : CONFIG.ApiFormat,
+    } );
+    const options = new RequestOptions ( { headers : headers } );
+    const Url = CONFIG.ApiURL + id + '/edit';
+    const body = JSON.stringify(newData);
+    return this.http.post ( Url, body , headers )
+        .toPromise ()
+  }
+
 
   async getRecipe(): Promise<Recipe[]> {
     const res = await this.getTableAll();
@@ -124,9 +136,11 @@ export class RecipeService {
     return recipe;
   }
 
-  saveRecipe(recipeId: string, recipe: Recipe) {
-    console.log(recipeId);
-    console.log(recipe);
+  async updateRecipe(recipeId: string, recipe: Recipe) {
+    const res = await this.updateTableRow(recipeId, recipe);
+    const rec = JSON.parse( res['_body'])['recipe'][0];
+    rec['ingredients'] = JSON.parse(rec['ingredients']);
+    return rec;
   }
 
  async addRecipe(recipe: Recipe) {

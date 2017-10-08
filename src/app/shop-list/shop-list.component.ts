@@ -15,7 +15,6 @@ export class ShopListComponent implements OnInit {
 
   async ngOnInit() {
     const res = await this.recipeService.getRecipe();
-    debugger;
     this.recipeList = res;
   }
 

@@ -35,7 +35,7 @@
       <div class="col-sm-12 col-md-4">
 
         <app-recipe-ingridients
-            (save)="saveRecipe($event)"
+            (save)="updateRecipe($event)"
             [recipe]="recipe"></app-recipe-ingridients>
 
         <button class="btn btn-success float-right"
@@ -70,7 +70,7 @@
           </div>
           <p-footer>
             <button class="btn btn-danger" (click)="displayRicepe=false" label="No">Отмена</button>
-            <button class="btn btn-success" (click)="saveRecipe()" label="Yes">Сохранить</button>
+            <button class="btn btn-success" (click)="updateRecipe()" label="Yes">Сохранить</button>
           </p-footer>
         </p-dialog>
 
