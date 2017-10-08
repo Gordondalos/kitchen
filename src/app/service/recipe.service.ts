@@ -132,6 +132,9 @@ export class RecipeService {
   async getRecipeById(id): Promise<Recipe> {
     const res = await this.getOneRow(id)
     const recipe: Recipe = JSON.parse(res['_body'])['recipe'][0];
+    if (typeof JSON.parse(recipe.ingredients) === 'string') {
+      recipe.ingredients = JSON.parse(recipe.ingredients);
+    }
     recipe.ingredients = JSON.parse(recipe.ingredients);
     return recipe;
   }
