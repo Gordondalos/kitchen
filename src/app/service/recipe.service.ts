@@ -119,7 +119,8 @@ export class RecipeService {
 
   async getRecipeById(id): Promise<Recipe> {
     const res = await this.getOneRow(id)
-    const recipe = JSON.parse(res['_body'])['recipe'][0];
+    const recipe: Recipe = JSON.parse(res['_body'])['recipe'][0];
+    recipe.ingredients = JSON.parse(recipe.ingredients);
     return recipe;
   }
 
