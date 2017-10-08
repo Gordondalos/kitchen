@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
 import { Recipe } from '../models/recipe.models';
 import { Subject } from 'rxjs';
+import 'rxjs/add/operator/toPromise';
+import { Headers, Http, RequestOptions } from '@angular/http';
+import { CONFIG } from '../config';
 
 
 @Injectable()
@@ -73,21 +76,51 @@ export class RecipeService {
 
   ];
 
-  constructor() {
+  constructor(public http: Http,) {
   }
 
-  getRecipe() {
+
+  getTableAll() {
+    const headers = new Headers({
+      'Content-Type': CONFIG.ApiContentType,
+      'format': CONFIG.ApiFormat,
+    });
+    const Url = CONFIG.ApiURL;
+    return this.http.get(Url).toPromise();
+  }
+
+  getOneRow(id) {
+    const headers = new Headers({
+      'Content-Type': CONFIG.ApiContentType,
+      'format': CONFIG.ApiFormat,
+    });
+    const Url = CONFIG.ApiURL + id + '/show';
+    return this.http.get(Url).toPromise();
+  }
+
+  addTableRow ( newData ) {
+    const headers = new Headers ( {
+      'Content-Type' : CONFIG.ApiContentType,
+      'format' : CONFIG.ApiFormat,
+    } );
+    const options = new RequestOptions ( { headers : headers } );
+    const Url = CONFIG.ApiURL + 'new ';
+    const body = JSON.stringify(newData);
+    return this.http.post ( Url, body , headers )
+        .toPromise ()
+  }
+
+
+  async getRecipe(): Promise<Recipe[]> {
+    const res = await this.getTableAll();
+    this.recipe = JSON.parse(res['_body'])['recipes'];
     return this.recipe;
   }
 
-  getRecipeById(id): Promise<Recipe> {
-    return new Promise(resolve => {
-      return _.find(this.recipe, item => {
-        if (item.id === id) {
-          resolve(item);
-        }
-      });
-    })
+  async getRecipeById(id): Promise<Recipe> {
+    const res = await this.getOneRow(id)
+    const recipe = JSON.parse(res['_body'])['recipe'][0];
+    return recipe;
   }
 
   saveRecipe(recipeId: string, recipe: Recipe) {
@@ -95,8 +128,9 @@ export class RecipeService {
     console.log(recipe);
   }
 
-  addRecipe(recipe: Recipe) {
-    console.log(recipe);
+ async addRecipe(recipe: Recipe) {
+    const res = await this.addTableRow(recipe);
+    return JSON.parse(res['_body'])['recipe'][0];
   }
 
 }

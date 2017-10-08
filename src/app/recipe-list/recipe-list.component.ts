@@ -32,8 +32,8 @@ export class RecipeListComponent implements OnInit {
               private router: Router) {
   }
 
-  ngOnInit() {
-    this.recipeList = this.recipeService.getRecipe();
+  async ngOnInit() {
+    this.recipeList = await this.recipeService.getRecipe();
     this.recipeService.eventFilter.subscribe((filterString) => {
       this.filterString = filterString;
     })
@@ -47,10 +47,10 @@ export class RecipeListComponent implements OnInit {
     this.display = true;
   }
 
-  saveRecipe() {
+  async saveRecipe() {
     const recipe = _.cloneDeep(this.recipe);
-    this.recipeService.addRecipe(recipe);
-    this.recipeList.push(recipe);
+    const res = await this.recipeService.addRecipe(recipe);
+    this.recipeList.push(res);
     this.recipe = {
       id: '',
       title: '',

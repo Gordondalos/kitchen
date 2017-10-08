@@ -13,8 +13,10 @@ export class ShopListComponent implements OnInit {
 
   constructor(private recipeService: RecipeService) { }
 
-  ngOnInit() {
-    this.recipeList = this.recipeService.getRecipe();
+  async ngOnInit() {
+    const res = await this.recipeService.getRecipe();
+    debugger;
+    this.recipeList = res;
   }
 
 }
