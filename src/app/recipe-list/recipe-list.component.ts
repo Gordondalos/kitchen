@@ -77,6 +77,7 @@ export class RecipeListComponent implements OnInit {
 
   removeShopList(recipe) {
     recipe.shopList = false;
+    this.recipeService.updateRecipe(recipe.id, recipe);
   }
 
 
